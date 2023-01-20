@@ -22,9 +22,15 @@ public class YahooFinanceApiUtils
 {
     static Table getData(List<String> symbols) throws IOException
     {
+        // default to 1 year of data
+        return getData(symbols, 1);
+    }
+
+    static Table getData(List<String> symbols, int years) throws IOException
+    {
         Calendar from = Calendar.getInstance();
         Calendar to = Calendar.getInstance();
-        from.add(Calendar.YEAR, -1); // from 1 years ago
+        from.add(Calendar.YEAR, -years); // from 1 years ago
 
         Table table = null;
 
@@ -38,7 +44,11 @@ public class YahooFinanceApiUtils
 
             history.forEach(q -> {
                 adjClose.add(q.getAdjClose());
-                date.add(LocalDateTime.ofInstant(q.getDate().toInstant(), q.getDate().getTimeZone().toZoneId()).toLocalDate());
+                LocalDateTime dateTime =
+                        LocalDateTime.ofInstant(q.getDate().toInstant(),
+                                                q.getDate().getTimeZone().toZoneId());
+                date.add(dateTime.toLocalDate());
+
             });
 
             List<Column<?>> cols = Arrays.asList(DateColumn.create("date", date.stream()),

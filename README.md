@@ -1,8 +1,13 @@
-### JShell
+## D-Sci4J
+
+Data Science for Java.
+
+#### Dependencies
+##### JShell
 
 https://docs.oracle.com/en/java/javase/11/jshell/introduction-jshell.html
 
-### JShell Maven Plugin
+##### JShell Maven Plugin
 
 https://github.com/johnpoth/jshell-maven-plugin
 
@@ -12,15 +17,21 @@ https://github.com/johnpoth/jshell-maven-plugin
     
     set JAVA_HOME=E:\jdk\jdk-11.0.6 
     REM mvn install
-    mvn -q jshell:run -Djshell.scripts="config/startup/default-startup"    
+    mvn -q jshell:run -Djshell.scripts="config/startup/default-startup"   
+    
+#### Exiting d-sci4j
 
-## Tablesaw 
+    /exit 
+
+## Examples
+
+#### Tablesaw 
 
 * https://github.com/jtablesaw/tablesaw
 * https://jtablesaw.github.io/tablesaw/gettingstarted.html
 
 
-#### Columns
+##### Columns
 
     jshell> double[] numbers = {1, 2, 3, 4};
     numbers ==> double[4] { 1.0, 2.0, 3.0, 4.0 }
@@ -35,7 +46,7 @@ https://github.com/johnpoth/jshell-maven-plugin
     3
     4
 
-#### Importing Data
+##### Importing Data
 
     jshell> Table bushTable = Table.read().csv("data/bush.csv");
     
@@ -64,3 +75,4 @@ https://github.com/johnpoth/jshell-maven-plugin
      2003-10-28  |        53  |       fox  |
     ...... more records
 
+#### ND4J

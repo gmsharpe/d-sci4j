@@ -23,6 +23,13 @@ import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE;
 
 public class ArrowUtils
 {
+    /**
+     * todo-15 credit Athena project and link to original source
+     *
+     * @param field
+     * @param origVal
+     * @return
+     */
     public static Object coerce(Field field, Object origVal)
     {
         if (origVal == null) {
@@ -81,6 +88,15 @@ public class ArrowUtils
         }
     }
 
+    /**
+     * todo-15 credit Athena project and link to original source
+     *
+     * @param vectorSchemaRoot
+     * @param allocator
+     * @param listField
+     * @param value
+     * @param row
+     */
     public static void writeConceptUnitsList(VectorSchemaRoot vectorSchemaRoot, BufferAllocator allocator, Field listField, Object value, int row)
     {
         FieldVector unitsListVector = vectorSchemaRoot.getVector(listField.getName());  // units list
@@ -152,6 +168,15 @@ public class ArrowUtils
         }
     }
 
+    /**
+     * todo-15 credit Athena project and link to original source
+     *
+     * @param vectorSchemaRoot
+     * @param allocator
+     * @param conceptField
+     * @param value
+     * @param row
+     */
     public static void writeConceptFieldValue(VectorSchemaRoot vectorSchemaRoot, BufferAllocator allocator, Field conceptField, Object value, int row) {
         FieldVector companyConceptFieldVector;
         companyConceptFieldVector = vectorSchemaRoot.getVector(conceptField.getName());

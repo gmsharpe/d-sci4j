@@ -2,3 +2,4 @@ import tech.tablesaw.api.*
 import tech.tablesaw.plotly.*
 import tech.tablesaw.plotly.api.*
 import tech.tablesaw.selection.*
+import static tech.tablesaw.api.DoubleColumn.*
